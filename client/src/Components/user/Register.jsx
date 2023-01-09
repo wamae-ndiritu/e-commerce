@@ -83,7 +83,7 @@ const Register = () => {
       console.log("User registered successfully!");
       navigate("/user/verify/one-time-password");
     }
-  }, [success]);
+  }, [success, error, navigate]);
 
   return (
     <div className="container d-flex justify-content-center">

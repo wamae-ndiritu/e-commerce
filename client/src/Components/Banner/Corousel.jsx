@@ -30,9 +30,9 @@ const Corousel = () => {
                 <div className="slider-right">
                   <img src={value.cover} alt="" />
                 </div>
-            </div>
+              </div>
             </>
-          )
+          );
         })}
       </Slider>
     </div>

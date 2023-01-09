@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate, useParams } from "react-router";
+import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../../comComponents/Message";
 import { resetPassword } from "../../Redux/Actions/userActions";
@@ -10,9 +10,9 @@ const ResetPassword = () => {
 
   const navigate = useNavigate();
 
-  const params = useParams();
+  // const params = useParams();
 
-  const id = params.id.toString();
+  // const id = params.id.toString();
 
   const passwordReset = useSelector((state) => state.passwordReset);
   const { loading, error, success } = passwordReset;
@@ -37,7 +37,7 @@ const ResetPassword = () => {
     if (success) {
       navigate("/login");
     }
-  }, [success]);
+  }, [success, navigate]);
 
   return (
     <div className="container">

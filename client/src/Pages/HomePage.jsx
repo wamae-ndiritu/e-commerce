@@ -6,7 +6,7 @@ import SliderSection from "../Components/Banner/SliderSection";
 import Shop from "../Components/Shop/Shop";
 import Announcements from "../Components/announcements";
 import PaymentBanner from "../Components/paymentBanner";
-import Footer from "../comComponents/Footer";
+// import Footer from "../comComponents/Footer";
 
 const HomePage = () => {
   return (

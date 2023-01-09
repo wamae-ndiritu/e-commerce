@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
-import cover from "../Images/Unga.png";
+// import cover from "../Images/Unga.png";
 import { useParams } from "react-router";
-import DiscountData from "../data/DiscountData";
+// import DiscountData from "../data/DiscountData";
 import ShopCardSm from "../Components/Shop/ShopCardSm";
-import Data from "../data/Data";
+// import Data from "../data/Data";
 import {
   getProductDetails,
   getSimilarProducts,

@@ -1,7 +1,7 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { useGlobalContext } from "../../contextAPI/context";
-import ShopCard from "../Shop/ShopCard";
+// import { useSelector } from "react-redux";
+// import { useGlobalContext } from "../../contextAPI/context";
+// import ShopCard from "../Shop/ShopCard";
 import ShopCardSm from "../Shop/ShopCardSm";
 
 const RecentProduct = ({ products }) => {
@@ -9,8 +9,8 @@ const RecentProduct = ({ products }) => {
   //   state: { cartItems },
   // } = useGlobalContext();
 
-  const cart = useSelector((state) => state.cart);
-  const { cartItems } = cart;
+  // const cart = useSelector((state) => state.cart);
+  // const { cartItems } = cart;
   return (
     <div className="mx-3">
       <div className="row">

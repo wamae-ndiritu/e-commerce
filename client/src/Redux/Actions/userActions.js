@@ -28,11 +28,11 @@ export const registerUser =
     try {
       dispatch({ type: USER_REGISTER_REQUEST });
 
-      const config = {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      };
+      // const config = {
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      // };
 
       const { data } = await axios.post(`${URL}/api/user/register`, {
         username,
@@ -138,13 +138,13 @@ export const forgotPass = (email) => async (dispatch) => {
   try {
     dispatch({ type: FORGOT_PASSWORD_REQUEST });
 
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
+    // const config = {
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    // };
 
-    const { data } = await axios.post(`${URL}/api/user/forgot/password`, email);
+    await axios.post(`${URL}/api/user/forgot/password`, email);
 
     dispatch({ type: FORGOT_PASSWORD_SUCCESS });
   } catch (error) {
@@ -164,10 +164,7 @@ export const resetPassword = (id, password) => async (dispatch) => {
   try {
     dispatch({ type: RESET_PASSWORD_REQUEST });
 
-    const { data } = await axios.post(
-      `${URL}/api/user/update/${id}/password`,
-      password
-    );
+    await axios.post(`${URL}/api/user/update/${id}/password`, password);
 
     dispatch({ type: RESET_PASSWORD_SUCCESS });
   } catch (error) {

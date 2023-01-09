@@ -8,7 +8,7 @@ import {
   saveBillingAddress,
   savePaymentMethod,
 } from "../Redux/Actions/cartActions";
-import { createOrder } from "../Redux/Actions/orderActions";
+// import { createOrder } from "../Redux/Actions/orderActions";
 
 const CheckoutPage = () => {
   const dispatch = useDispatch();
@@ -28,6 +28,8 @@ const CheckoutPage = () => {
   const [paymentMethod, setPaymentMethod] = useState("");
   const [deliveryMethod, setDeliveryMethod] = useState("");
 
+  console.log(deliveryMethod);
+
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
@@ -38,7 +40,7 @@ const CheckoutPage = () => {
     .reduce((itemA, itemB) => itemA + itemB.qty * itemB.price, 0)
     .toFixed(2);
 
-  const totalPrice = Number(Math.round(cartTotals));
+  // const totalPrice = Number(Math.round(cartTotals));
 
   const handleChange = (e) => {
     setInputs({ ...inputs, [e.target.name]: e.target.value });
@@ -57,7 +59,7 @@ const CheckoutPage = () => {
       setEmail(userInfo.email);
       setPhone(userInfo.phone);
     }
-  });
+  }, [userInfo]);
 
   const handlePlaceOrder = () => {
     if (userInfo) {

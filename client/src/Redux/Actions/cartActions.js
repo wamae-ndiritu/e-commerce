@@ -5,7 +5,7 @@ import {
   CART_SAVE_BILLING_ADDRESS,
   CART_SAVE_PAYMENT_METHOD,
   DECREASE_CART_QTY,
-  INCREASE_CART_QTY,
+  // INCREASE_CART_QTY,
 } from "../Constants/cartConstants";
 import axios from "axios";
 import { URL } from "../../url";

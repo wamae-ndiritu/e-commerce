@@ -7,7 +7,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 // import {reducer, initialState} from "../../store/Reducers"
 // import { useGlobalContext } from "../../contextAPI/context";
 import {
-  changeCartItemQty,
+  // changeCartItemQty,
   addToCart,
   clearCart,
   removefromcart,
