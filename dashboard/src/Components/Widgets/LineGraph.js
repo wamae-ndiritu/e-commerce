@@ -1,5 +1,5 @@
 import React from "react";
-// import Chart from "chart.js/auto";
+import Chart from "chart.js/auto";
 import { Line } from "react-chartjs-2";
 
 const labels = ["January", "February", "March", "April", "May", "June"];
@@ -17,6 +17,7 @@ const data = {
 };
 
 const LineGraph = () => {
+  console.log(Chart);
   return (
     <div>
       <Line data={data} />
