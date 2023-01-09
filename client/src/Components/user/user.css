@@ -1,0 +1,47 @@
+/* REGISTER/LOGIN */
+.login-cont {
+    background-color: #fff;
+    margin: 30px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.input-cont {
+    width: 70%;
+    margin: auto;
+    padding: 20px 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+
+.input-cont input {
+    margin: 0 auto;
+    padding: 3px 0;
+    border: none;
+    width: 80%;
+}
+
+.input-pass input {
+    width: 70%;
+}
+
+.input-cont input:focus {
+    outline: none;
+}
+
+.sign-btn {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.fa-eye {
+    cursor: pointer;
+}
+
+/* REGISTER/LOGIN */
