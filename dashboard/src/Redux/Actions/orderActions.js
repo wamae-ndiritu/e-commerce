@@ -4,7 +4,7 @@ import { logout } from "../Actions/userActions";
 import {
   LIST_ORDER_REQUEST,
   LIST_ORDER_SUCCESS,
-  LIST_ORDER_FAIL,
+  // LIST_ORDER_FAIL,
   ORDER_DETAILS_REQUEST,
   ORDER_DETAILS_SUCCESS,
   ORDER_DETAILS_FAIL,

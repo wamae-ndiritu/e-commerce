@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import raha from "../../Images/raha.jpg";
+// import raha from "../../Images/raha.jpg";
 import { getOrderDetails } from "../../Redux/Actions/orderActions";
 
 const Order = () => {

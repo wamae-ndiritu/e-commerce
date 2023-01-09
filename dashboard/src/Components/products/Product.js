@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import raha from "../../Images/raha.jpg";
+// import raha from "../../Images/raha.jpg";
 import { getProductDetails } from "../../Redux/Actions/productActions";
 const Product = () => {
   const dispatch = useDispatch();

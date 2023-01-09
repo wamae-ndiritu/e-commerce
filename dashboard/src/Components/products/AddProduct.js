@@ -44,6 +44,9 @@ const AddProduct = () => {
   const [progress, setProgress] = useState(0);
   const [progressShow, setProgressShow] = useState(false);
 
+  console.log(progress);
+  console.log(progressShow);
+
   const handleChange = (e) => {
     setInputs((prev) => {
       return { ...prev, [e.target.name]: e.target.value };
