@@ -36,7 +36,7 @@ const Discountcard = () => {
     <>
       <Slider {...settings} className="color-3">
         {similarProducts?.map((product) => {
-          const { _id, productImages, productName, price } = product;
+          const { _id, productImages, productName } = product;
           return (
             <>
               <div
