@@ -44,8 +44,8 @@ const PaymentPage = () => {
 
   useEffect(() => {
     if (success) {
-      const orderItems = cartItems;
-      dispatch(createOrder(orderItems, billingAddress, totalPrice));
+      // const orderItems = cartItems;
+      // dispatch(createOrder(orderItems, billingAddress, totalPrice));
     }
   }, [success, dispatch, billingAddress, cartItems, totalPrice]);
 

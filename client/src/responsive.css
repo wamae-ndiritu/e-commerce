@@ -302,6 +302,11 @@
     flex: 100%;
     margin-bottom: 30px;
   }
+
+  .related-product-img img {
+    width: 100px;
+    margin-top: 0 auto;
+  }
 }
 
 @media (max-width: 368px) {

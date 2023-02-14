@@ -105,8 +105,13 @@ const ProductPage = () => {
             <h6>Related products</h6>
             {similarProducts?.map((product) => {
               return (
-                <div className="col-6 col-md-4 col-lg-4" key={product._id}>
-                  <ShopCardSm product={product} style={{ width: "100%" }} />
+                <div
+                  className="col-6 col-md-4 col-lg-4 shadow-sm"
+                  key={product._id}
+                >
+                  <div>
+                    <ShopCardSm product={product} style={{ width: "100%" }} />
+                  </div>
                 </div>
               );
             })}

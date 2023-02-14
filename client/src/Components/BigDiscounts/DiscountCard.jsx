@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Discountdata from "../../data/DiscountData";
+import { getSimilarProducts } from "../../Redux/Actions/productActions";
+import { useDispatch, useSelector } from "react-redux";
 
 const checkWindowWidth = () => {
   if (window.innerWidth <= 438) {
@@ -20,18 +21,34 @@ const Discountcard = () => {
     slidesToScroll: checkWindowWidth(),
     autoplay: true,
   };
+
+  const dispatch = useDispatch();
+
+  const similarProductId = "639e411ba6dc47023b0f837b";
+
+  const productSimilar = useSelector((state) => state.productSimilar);
+  const { products: similarProducts } = productSimilar;
+
+  useEffect(() => {
+    dispatch(getSimilarProducts(similarProductId));
+  }, [dispatch]);
   return (
     <>
-      <Slider {...settings}>
-        {Discountdata.map((value, index) => {
+      <Slider {...settings} className="color-3">
+        {similarProducts?.map((product) => {
+          const { _id, productImages, productName, price } = product;
           return (
             <>
-              <div className="box product" key={index}>
+              <div
+                className="box product card-padding"
+                key={_id}
+                style={{ padding: "10px" }}
+              >
                 <div className="img">
-                  <img src={value.cover} alt="" width="100%" />
+                  <img src={productImages[0]} alt="" width="100%" />
                 </div>
-                <h4>{value.name}</h4>
-                <span>{value.price}</span>
+                <h4>{productName}</h4>
+                <span>{price}</span>
               </div>
             </>
           );

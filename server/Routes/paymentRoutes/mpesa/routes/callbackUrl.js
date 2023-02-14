@@ -6,6 +6,8 @@ const callBackRouter = express.Router();
 callBackRouter.post("/", async (req, res) => {
   const result = req.body.Body.stkCallback.CallbackMetadata;
 
+  console.log(req.body);
+
   console.log(result);
 
   const amountPaid = result.Item[0].Value;

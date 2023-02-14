@@ -13,6 +13,7 @@ body {
   --secondary-color: #000000;
   --faded-blue: #0f3460;
   --color-red: #ee0606e7;
+  --color-red-2: #fc3516;
   --color-border: #8080805d;
   --paragraph-color: #2b2929c7;
   --link-color: #414141;
@@ -434,6 +435,10 @@ p {
   margin: 5px;
 }
 
+.card-padding {
+  padding: 10px;
+}
+
 .product-2 {
   background-color: #fff;
   position: relative;
@@ -467,7 +472,7 @@ p {
 
 .product-2 span,
 .product span {
-  color: #e94560;
+  color: var(--faded-blue);
   font-size: 12px;
 }
 
@@ -475,29 +480,12 @@ p {
 .product .price {
   display: flex;
   justify-content: space-between;
-  color: #e94560;
+  color: var(--color-red-2);
 }
 
 .product-2 h4,
 .product h4 {
   font-size: 12px;
-}
-
-.price button {
-  background: none;
-  color: #e94560;
-  font-size: 20px;
-  transition: 0.5s;
-  border: 1px solid rgb(3 0 71 / 9%);
-  width: 25px;
-  height: 25px;
-  border-radius: 5px;
-}
-
-.price button:hover {
-  cursor: pointer;
-  background-color: #e94560;
-  color: #fff;
 }
 
 .product-like {
@@ -528,7 +516,6 @@ p {
 
 .title-bar {
   box-shadow: rgb(3 0 71 / 9%) 0px 1px 3px;
-  /* background-color: #ee0606e7; */
   display: flex;
   justify-content: space-between;
   background-color: var(--faded-blue);
@@ -564,11 +551,11 @@ p {
 }
 
 .control-btn .prev {
-  left: -10px;
+  left: 10px;
 }
 
 .control-btn .next {
-  right: -10px;
+  right: 10px;
 }
 
 .control-btn .prev i,
@@ -641,12 +628,8 @@ p {
   background: #fff;
   position: relative;
   border-radius: 8px;
-  /* box-shadow: rgb(3 0 71 / 9%) 0px 1px 3px; */
-  /* box-shadow: rgb(43 52 69 / 10%) 0px 4px 16px; */
-  /* box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px; */
-  /* margin: 1px; */
   margin-bottom: 5px;
-  padding: 10px;
+  padding: 10px 3px;
 }
 
 .shop-product:hover {
@@ -692,7 +675,7 @@ p {
 .shop-product .price {
   display: flex;
   justify-content: space-between;
-  color: #e94560;
+  color: var(--color-red-2);
 }
 
 .shop-product h4 {
@@ -707,13 +690,19 @@ p {
 
 .price button {
   background: none;
-  color: #e94560;
   font-size: 20px;
   transition: 0.5s;
   border: 1px solid rgb(3 0 71 / 9%);
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   border-radius: 5px;
+  color: var(--color-red-2);
+}
+
+.price button:hover {
+  cursor: pointer;
+  background-color: var(--color-red-2);
+  color: #fff;
 }
 
 .shop-product-cart-btn {
