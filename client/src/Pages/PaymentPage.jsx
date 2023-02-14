@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import mpesa from "../Images/mpesa.png";
-import { createOrder, payOrder } from "../Redux/Actions/orderActions";
+import { payOrder } from "../Redux/Actions/orderActions";
 import Message from "../utilities/Message";
 
 const PaymentPage = () => {
@@ -13,7 +13,7 @@ const PaymentPage = () => {
 
   const [phone, setPhone] = useState("");
   const cart = useSelector((state) => state.cart);
-  const { cartItems, billingAddress } = cart;
+  const { cartItems } = cart;
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
@@ -25,7 +25,7 @@ const PaymentPage = () => {
     .reduce((itemA, itemB) => itemA + itemB.qty * itemB.price, 0)
     .toFixed(2);
 
-  const totalPrice = Number(Math.round(cartTotals));
+  // const totalPrice = Number(Math.round(cartTotals));
 
   const mpesaPayHandler = (e) => {
     e.preventDefault();
@@ -42,12 +42,12 @@ const PaymentPage = () => {
     navigate("/checkout/payment/verification");
   };
 
-  useEffect(() => {
-    if (success) {
-      // const orderItems = cartItems;
-      // dispatch(createOrder(orderItems, billingAddress, totalPrice));
-    }
-  }, [success, dispatch, billingAddress, cartItems, totalPrice]);
+  // useEffect(() => {
+  //   if (success) {
+  //     // const orderItems = cartItems;
+  //     // dispatch(createOrder(orderItems, billingAddress, totalPrice));
+  //   }
+  // }, [success, dispatch, billingAddress, cartItems, totalPrice]);
 
   useEffect(() => {
     if (userInfo) {
