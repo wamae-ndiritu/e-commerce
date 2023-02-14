@@ -6,7 +6,6 @@
 
 body {
   background-color: #fff;
-  overflow-x: hidden;
 }
 
 :root {
@@ -82,9 +81,9 @@ p {
 }
 
 /* Header */
-/* .head{
-  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
-} */
+.head {
+  overflow-x: hidden;
+}
 
 .top-header {
   display: flex;
