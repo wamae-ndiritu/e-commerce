@@ -2,11 +2,11 @@
   margin: 0;
   padding: 0;
   box-shadow: border-box;
-  overflow-x: hidden;
 }
 
 body {
   background-color: #fff;
+  overflow-x: hidden;
 }
 
 :root {
@@ -156,6 +156,7 @@ p {
   font-size: 24px;
   color: #000000;
   margin: auto;
+  height: 30px;
 }
 
 .search-input-cont {
@@ -259,6 +260,7 @@ p {
   justify-content: center;
   align-items: center;
   background-color: red;
+  font-size: 10px;
   color: #fff;
 }
 

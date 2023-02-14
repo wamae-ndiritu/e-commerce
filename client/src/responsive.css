@@ -25,7 +25,7 @@
 
   .logo-row {
     display: flex;
-    height: auto;
+    height: 80px;
     align-items: center;
     justify-content: center;
     margin: auto;
@@ -38,12 +38,11 @@
   }
 
   .right-header p i {
-    height: 60px;
-    width: 60px;
+    height: 40px;
+    width: 40px;
     border-radius: 50%;
     background-color: #f0f8ffda;
     color: navy;
-    font-size: 18px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -77,6 +76,7 @@
 
   .logo-header {
     margin-left: 10px;
+    font-size: 16px;
   }
   .right-header p {
     padding: 0;

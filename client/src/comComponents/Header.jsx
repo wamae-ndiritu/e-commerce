@@ -92,18 +92,10 @@ const Header = () => {
                 onClick={() => setIsViewSearchInput(!isViewSearchInput)}
                 className="small-header-icon"
               >
-                <i
-                  className="fa fa-search"
-                  aria-hidden="true"
-                  style={{ fontSize: "20px" }}
-                ></i>
+                <i className="fa fa-search" aria-hidden="true"></i>
               </p>
               <p className="small-header-icon">
-                <i
-                  className="fa fa-bars"
-                  aria-hidden="true"
-                  style={{ fontSize: "20px" }}
-                ></i>
+                <i className="fa fa-bars" aria-hidden="true"></i>
               </p>
             </div>
           </>
