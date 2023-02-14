@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 const checkWindowWidth = () => {
   if (window.innerWidth <= 438) {
-    return 3;
+    return 2;
   } else {
     return 6;
   }
