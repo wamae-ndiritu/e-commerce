@@ -64,7 +64,7 @@ const ShopSection = () => {
                   <h4>kES {price}.00 </h4>
                 </div>
                 <div className="description">
-                  <p>{description}</p>
+                  <p>{description.slice(0, 150)}...</p>
                 </div>
               </div>
               <button
