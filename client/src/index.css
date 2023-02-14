@@ -112,7 +112,7 @@ p {
 .active-header {
   height: 80px;
   position: fixed;
-  top: 0;
+  top: 10px;
   z-index: 1000;
   transition: 0.5s;
 }

@@ -17,12 +17,6 @@ const ShopSection = () => {
   const productList = useSelector((state) => state.productList);
   const { products: list, loading, error } = productList;
 
-  useEffect(() => {
-    if (list) {
-      console.log(list?.products);
-    }
-  }, [list]);
-
   return (
     <div className="cont row shadow-sm">
       {loading ? (
@@ -39,7 +33,7 @@ const ShopSection = () => {
         )
       )}
       {list?.products?.map((product) => {
-        const { productImages, productName, price, _id } = product;
+        const { productImages, productName, price, _id, description } = product;
         return (
           <Link
             to={`/products/${_id}`}
@@ -67,13 +61,10 @@ const ShopSection = () => {
                   <i className="fa fa-star"></i>
                 </div>
                 <div className="price">
-                  <h4>${price}.00 </h4>
+                  <h4>kES {price}.00 </h4>
                 </div>
                 <div className="description">
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Quis lobortis consequat eu, quam etiam at quis ut convallis.
-                  </p>
+                  <p>{description}</p>
                 </div>
               </div>
               <button

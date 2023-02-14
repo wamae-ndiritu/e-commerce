@@ -1,7 +1,7 @@
 import React from "react";
 
 const ShopCard = ({ product }) => {
-  const { cover, name, price } = product;
+  const { cover, name, price, description } = product;
   return (
     <div style={{ width: "100%" }}>
       <div className="shop-product">
@@ -25,13 +25,10 @@ const ShopCard = ({ product }) => {
             <i className="fa fa-star"></i>
           </div>
           <div className="price">
-            <h4>${price}.00 </h4>
+            <h4>KES {price}.00 </h4>
           </div>
           <div className="description">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis
-              lobortis consequat eu, quam etiam at quis ut convallis.
-            </p>
+            <p>{description}</p>
           </div>
         </div>
         <button type="button" className="shop-product-cart-btn">
