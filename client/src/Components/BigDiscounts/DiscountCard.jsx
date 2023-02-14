@@ -48,7 +48,6 @@ const Discountcard = () => {
                   <img src={productImages[0]} alt="" width="100%" />
                 </div>
                 <h4>{productName}</h4>
-                <span>{price}</span>
               </div>
             </>
           );
