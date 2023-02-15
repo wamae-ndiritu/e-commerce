@@ -1,16 +1,44 @@
 import React from "react";
+// import $ from "jquery";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { categories } from "../Components/Banner/categoryData";
 // import { useGlobalContext } from "../contextAPI/context";
 
 const Header = () => {
   const [isViewSearchInput, setIsViewSearchInput] = useState(false);
+  const [isViewCategories, setIsViewCategories] = useState(false);
+  const [isViewMobileLinks, setIsViewMobileLinks] = useState(false);
 
   window.addEventListener("scroll", function () {
     const activeHeader = document.querySelector("#header");
     activeHeader?.classList.toggle("active-header", window.scrollY > 10);
   });
+
+  const expandCategories = () => {
+    setIsViewCategories(!isViewCategories);
+  };
+
+  const toggleMobileLinks = () => {
+    setIsViewMobileLinks(!isViewMobileLinks);
+    if (window.scrollY === 0) {
+      console.log(window.scrollY);
+      const activeHeader = document.querySelector("#header");
+      activeHeader?.classList.toggle("active-header");
+    }
+  };
+
+  // useEffect(() => {
+  //   var $el = $(".category").clone();
+  //   console.log($el);
+
+  //   $("#append-categories").append($el);
+  //   const displayCategoriesBtn = document.querySelector(".category");
+  //   displayCategoriesBtn.classList.add(".hover-categories");
+  // }, []);
+  // const newCat = document.querySelector(".category");
+  // console.log(newCat);
   // const {
   //   state: { cartItems },
   // } = useGlobalContext();
@@ -94,16 +122,50 @@ const Header = () => {
               >
                 <i className="fa fa-search" aria-hidden="true"></i>
               </p>
-              <p className="small-header-icon">
-                <i className="fa fa-bars" aria-hidden="true"></i>
+              <p className="small-header-icon" onClick={toggleMobileLinks}>
+                <i
+                  className={isViewMobileLinks ? `fa fa-times` : `fa fa-bars`}
+                  aria-hidden="true"
+                ></i>
               </p>
+              {isViewMobileLinks && (
+                <div className="mobile-links">
+                  <ul className="mobile-links-ul">
+                    <li className="link-1" onClick={expandCategories}>
+                      Categories <i className="fa fa-chevron-down"></i>
+                      {isViewCategories && (
+                        <ul className="hidden-categories">
+                          {categories.map((value, index) => {
+                            return (
+                              <li className="box c-flex link" key={index}>
+                                <img src={value.cateImg} alt="" />
+                                <span>{value.cateName}</span>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      )}
+                    </li>
+                    <li className="link">Delivery</li>
+                    <li className="link">
+                      Orders <i className="fa fa-chevron-down"></i>
+                    </li>
+                    <li className="link">
+                      About Us <i className="fa fa-chevron-down"></i>
+                    </li>
+                    <li className="link">
+                      <Link to="/FAQs">FAQs</Link>
+                    </li>
+                  </ul>
+                </div>
+              )}
             </div>
           </>
         )}
       </div>
       <div className="navbar-row shadow-sm">
         <div className="navbar-right">
-          <p>
+          <p id="append-categories">
             <span className="fa fa-building-o"></span> Categories{" "}
             <i className="fa fa-chevron-down"></i>
           </p>

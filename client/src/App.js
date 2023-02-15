@@ -44,33 +44,34 @@ function App() {
     <Router>
       <ScrollToTop />
       <Header />
-
-      <Routes id="body">
-        <Route element={<AuthLayout />}>
-          <Route path="/checkout" element={<CheckoutPage />} />
-          <Route path="/checkout/payment" element={<PaymentPage />} />
+      <div id="id">
+        <Routes>
+          <Route element={<AuthLayout />}>
+            <Route path="/checkout" element={<CheckoutPage />} />
+            <Route path="/checkout/payment" element={<PaymentPage />} />
+            <Route
+              path="/checkout/payment/verification"
+              element={<PaymentVerificationPage />}
+            />
+            <Route path="/user/profile" element={<ProfilePage />} />
+            <Route path="/wishlist" element={<WishlistPage />} />
+            <Route path="/order/:id" element={<OrderPage />} />
+          </Route>
+          <Route path="/" element={<HomePage />} exact />
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/cart/:id" element={<CartPage />} />
+          <Route path="/products/:id" element={<ProductPage />} />
+          <Route path="/account" element={<AccountPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/user/forgot/password" element={<SendResetPage />} />
+          <Route path="/:id/reset/password" element={<ResetPassPage />} />
           <Route
-            path="/checkout/payment/verification"
-            element={<PaymentVerificationPage />}
+            path="/user/verify/one-time-password"
+            element={<VerifyUserPage />}
           />
-          <Route path="/user/profile" element={<ProfilePage />} />
-          <Route path="/wishlist" element={<WishlistPage />} />
-          <Route path="/order/:id" element={<OrderPage />} />
-        </Route>
-        <Route path="/" element={<HomePage />} exact />
-        <Route path="/cart" element={<CartPage />} />
-        <Route path="/cart/:id" element={<CartPage />} />
-        <Route path="/products/:id" element={<ProductPage />} />
-        <Route path="/account" element={<AccountPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/user/forgot/password" element={<SendResetPage />} />
-        <Route path="/:id/reset/password" element={<ResetPassPage />} />
-        <Route
-          path="/user/verify/one-time-password"
-          element={<VerifyUserPage />}
-        />
-      </Routes>
+        </Routes>
+      </div>
       <Footer />
     </Router>
   );

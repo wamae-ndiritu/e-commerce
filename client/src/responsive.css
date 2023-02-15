@@ -76,8 +76,9 @@
 
   .logo-header {
     margin-left: 10px;
-    font-size: 16px;
+    font-size: 18px;
   }
+
   .right-header p {
     padding: 0;
   }
@@ -128,10 +129,8 @@
     padding: 10px;
   }
 
-  .navbar-row ul li {
-    color: #000;
-    margin-right: 10px;
-    padding: 20px 0;
+  .navbar-row {
+    display: none;
   }
 
   .navbar-row ul li:hover {

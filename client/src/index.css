@@ -19,6 +19,7 @@ body {
 
 #body {
   overflow-x: hidden;
+  background-color: red;
 }
 
 :root {
@@ -30,6 +31,12 @@ body {
   --color-border: #8080805d;
   --paragraph-color: #2b2929c7;
   --link-color: #414141;
+}
+
+.hover-categories {
+  position: fixed;
+  height: 400px;
+  top: 100px;
 }
 
 .border-red {
@@ -114,7 +121,7 @@ p {
 .active-header {
   height: 80px;
   position: fixed;
-  top: 0;
+  top: 0px;
   z-index: 1000;
   transition: 0.5s;
 }
@@ -274,6 +281,52 @@ p {
   display: block;
   width: 150px;
   height: auto;
+}
+
+.mobile-links {
+  display: block;
+}
+
+.mobile-links .mobile-links-ul {
+  list-style-type: none;
+  background-color: #fff;
+  position: absolute;
+  z-index: 999;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  min-height: calc(100vh - 70px);
+  padding: 20px 20px;
+}
+
+.mobile-links ul li {
+  padding: 5px 0;
+}
+
+.mobile-links .mobile-links-ul li ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.mobile-links .mobile-links-ul .link-1 ul {
+  transition: all 0.3s linear;
+}
+
+.mobile-links .mobile-links-ul li ul .box img {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  padding: 0;
+}
+
+.mobile-links .mobile-links-ul .link:hover {
+  background-color: rgb(108, 108, 197);
+  padding: 0 10px;
+  color: #fff;
+}
+
+.mobile-links .mobile-links-ul .link-1:hover {
+  background-color: #fff;
 }
 
 /* SliderSection */
