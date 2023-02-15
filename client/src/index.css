@@ -2,11 +2,11 @@
   margin: 0;
   padding: 0;
   box-shadow: border-box;
+  overflow: visible;
 }
 
 body {
   background-color: #fff;
-  overflow-x: hidden;
 }
 
 :root {
