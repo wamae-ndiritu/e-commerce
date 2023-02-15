@@ -9,7 +9,7 @@ const Header = () => {
 
   window.addEventListener("scroll", function () {
     const activeHeader = document.querySelector("#header");
-    activeHeader?.classList.toggle("active-header", window.scrollY > 100);
+    activeHeader?.classList.toggle("active-header", window.scrollY > 10);
   });
   // const {
   //   state: { cartItems },

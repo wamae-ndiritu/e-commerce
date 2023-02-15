@@ -45,7 +45,7 @@ function App() {
       <ScrollToTop />
       <Header />
 
-      <Routes>
+      <Routes id="body">
         <Route element={<AuthLayout />}>
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/checkout/payment" element={<PaymentPage />} />
