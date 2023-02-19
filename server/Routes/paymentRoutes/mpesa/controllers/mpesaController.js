@@ -32,8 +32,7 @@ exports.mpesaPassword = (req, res) => {
 exports.token = (req, res, next) => {
   //ACCESS_TOKEN
 
-  const url =
-    "https://api.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials";
+  const url = "https://api.safaricom.co.ke/oauth/v1/generate";
   const auth =
     "Basic " + Buffer.from(consumerKey + ":" + consumerSec).toString("base64");
 
@@ -92,8 +91,8 @@ exports.stkPush = (req, res) => {
     PartyB: BusinessShortCode,
     PhoneNumber: phone,
     CallBackURL: callbackUrl,
-    AccountReference: "Shangilia System Test",
-    TransactionDesc: "Shangilia System Test",
+    AccountReference: "Nelite IT Solutions",
+    TransactionDesc: "Nelite IT Solutions",
   };
 
   // console.log(data);
