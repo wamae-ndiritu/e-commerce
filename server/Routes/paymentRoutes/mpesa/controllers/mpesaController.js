@@ -32,7 +32,8 @@ exports.mpesaPassword = (req, res) => {
 exports.token = (req, res, next) => {
   //ACCESS_TOKEN
 
-  const url = "https://api.safaricom.co.ke/oauth/v1/generate";
+  const url =
+    "https://api.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials";
   const auth =
     "Basic " + Buffer.from(consumerKey + ":" + consumerSec).toString("base64");
 
@@ -47,7 +48,7 @@ exports.token = (req, res, next) => {
     .then((response) => {
       // console.log(response);
       let token = response.data.access_token;
-      // console.log(`token is ${token}`);
+      console.log(`token is ${token}`);
       req.access_token = token;
       next();
     })
