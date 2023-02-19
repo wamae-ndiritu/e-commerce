@@ -6,8 +6,12 @@ import { getSimilarProducts } from "../../Redux/Actions/productActions";
 import { useDispatch, useSelector } from "react-redux";
 
 const checkWindowWidth = () => {
-  if (window.innerWidth <= 438) {
-    return 2;
+  if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 534) {
+      return 2;
+    } else {
+      return 4;
+    }
   } else {
     return 6;
   }
@@ -24,32 +28,28 @@ const Discountcard = () => {
 
   const dispatch = useDispatch();
 
-  const similarProductId = "639e411ba6dc47023b0f837b";
+  const similarProductId = "639a36d50938388a2d818d2a";
 
   const productSimilar = useSelector((state) => state.productSimilar);
   const { products: similarProducts } = productSimilar;
 
   useEffect(() => {
     dispatch(getSimilarProducts(similarProductId));
-  }, [dispatch]);
+  }, [dispatch, similarProductId]);
   return (
     <>
       <Slider {...settings} className="color-3">
         {similarProducts?.map((product) => {
           const { _id, productImages, productName } = product;
           return (
-            <>
-              <div
-                className="box product card-padding"
-                key={_id}
-                style={{ padding: "10px" }}
-              >
+            <div key={_id}>
+              <div className="product card-padding" style={{ padding: "10px" }}>
                 <div className="img">
                   <img src={productImages[0]} alt="" width="100%" />
                 </div>
                 <h4>{productName}</h4>
               </div>
-            </>
+            </div>
           );
         })}
       </Slider>

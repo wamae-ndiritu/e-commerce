@@ -17,9 +17,9 @@ body {
   /* background-color: #0f3460; */
 }
 
-#body {
-  overflow-x: hidden;
-  background-color: red;
+#id {
+  /* overflow-x: hidden; */
+  width: 100%;
 }
 
 :root {
@@ -74,10 +74,10 @@ p {
   font-size: 14px;
 }
 
-.cont {
-  width: 95%;
-  margin: 0 auto;
-}
+/* .cont {
+  width: 100vw;
+  /* margin: 0 auto; 
+} */
 .btn-color {
   background-color: var(--secondary-color);
   color: #fff;
@@ -120,6 +120,7 @@ p {
 
 .active-header {
   height: 80px;
+  width: 100%;
   position: fixed;
   top: 0px;
   z-index: 1000;
@@ -743,6 +744,7 @@ p {
   font-size: 10px;
   color: var(--paragraph-color);
   padding: 3px;
+  flex-wrap: wrap;
 }
 
 .price button {

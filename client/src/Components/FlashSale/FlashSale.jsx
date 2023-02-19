@@ -6,7 +6,7 @@ const FlashSale = () => {
   const productSimilar = useSelector((state) => state.productSimilar);
   const { products: similarProducts } = productSimilar;
   return (
-    <div className="cont mt-3 mb-5">
+    <div className="container-fluid mt-3 mb-5">
       <div className="title-bar">
         <h2>Flash Sale!</h2>
         <h2 className="view-all">

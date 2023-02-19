@@ -4,7 +4,7 @@ import DiscountData from "../../data/DiscountData";
 
 const Shop = () => {
   return (
-    <div className="cont mt-3">
+    <div className="container-fluid mt-3">
       <div className="title-bar mb-3">
         <h2>Deals in Wholesale/Retail Price</h2>
         <h2 className="view-all">

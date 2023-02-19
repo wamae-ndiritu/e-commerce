@@ -33,7 +33,7 @@ exports.token = (req, res, next) => {
   //ACCESS_TOKEN
 
   const url =
-    "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials";
+    "https://api.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials";
   const auth =
     "Basic " + Buffer.from(consumerKey + ":" + consumerSec).toString("base64");
 
@@ -79,11 +79,9 @@ exports.stkPush = (req, res) => {
   const dateNow = datetime.create();
   const timestamp = dateNow.format("YmdHMS");
 
-  const callbackUrl =
-    "https://green-moments-lay-197-136-105-84.loca.lt/api/confirmation/";
+  const callbackUrl = "https://shangilia-server.onrender.com/api/confirmation/";
 
-  const stkUrl =
-    "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest";
+  const stkUrl = "https://api.safaricom.co.ke/mpesa/stkpush/v1/processrequest";
   let data = {
     BusinessShortCode: BusinessShortCode,
     Password: newPassword(),

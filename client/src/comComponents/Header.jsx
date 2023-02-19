@@ -63,22 +63,24 @@ const Header = () => {
           </Link>
         </p>
       </div>
-      <div className="logo-row" id="header">
+      <div id="header">
         {isViewSearchInput ? (
-          <form>
-            <div className="search-input-cont mobile-search">
-              <input
-                type="text"
-                className="search-input form-control"
-                placeholder="Search your product here..."
-              />
-              <button className="search-btn" type="button">
-                <i className="fa fa-search" aria-hidden="true"></i>
-              </button>
-            </div>
-          </form>
+          <div className="logo-row">
+            <form>
+              <div className="search-input-cont mobile-search">
+                <input
+                  type="text"
+                  className="search-input form-control"
+                  placeholder="Search your product here..."
+                />
+                <button className="search-btn" type="button">
+                  <i className="fa fa-search" aria-hidden="true"></i>
+                </button>
+              </div>
+            </form>
+          </div>
         ) : (
-          <>
+          <div className="logo-row">
             <h1 className="logo-header">
               <Link to="/">Shangilia Wholesalers Ltd</Link>
             </h1>
@@ -160,7 +162,7 @@ const Header = () => {
                 </div>
               )}
             </div>
-          </>
+          </div>
         )}
       </div>
       <div className="navbar-row shadow-sm">

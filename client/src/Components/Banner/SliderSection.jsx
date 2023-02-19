@@ -4,7 +4,7 @@ import Corousel from "./Corousel";
 
 const SliderSection = () => {
   return (
-    <div className="cont">
+    <div className="container-fluid">
       <div className="slider-flex">
         <div className="slider-flex-1">
           <Categories />

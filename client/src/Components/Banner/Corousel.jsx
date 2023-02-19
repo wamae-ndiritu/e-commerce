@@ -20,8 +20,8 @@ const Corousel = () => {
       <Slider {...settings} className="mx-3">
         {SliderData.map((value, index) => {
           return (
-            <>
-              <div className="slider-wrapper" key={index}>
+            <div key={index}>
+              <div className="slider-wrapper">
                 <div className="slider-left">
                   <h1>{value.title}</h1>
                   <p>{value.desc}</p>
@@ -31,7 +31,7 @@ const Corousel = () => {
                   <img src={value.cover} alt="" />
                 </div>
               </div>
-            </>
+            </div>
           );
         })}
       </Slider>

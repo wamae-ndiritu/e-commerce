@@ -18,10 +18,8 @@ verificationRouter.post(
 
     if (transaction) {
       res.json(transaction);
-      console.log(transaction);
     } else {
       res.status(401).json({ message: "Invalid Mpesa Code" });
-      // throw new Error("Invalid Mpesa Code");
     }
   })
 );

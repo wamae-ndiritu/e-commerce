@@ -5,8 +5,12 @@ import "slick-carousel/slick/slick-theme.css";
 import { useSelector } from "react-redux";
 
 const checkWindowWidth = () => {
-  if (window.innerWidth <= 438) {
-    return 2;
+  if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 534) {
+      return 2;
+    } else {
+      return 3;
+    }
   } else {
     return 6;
   }
