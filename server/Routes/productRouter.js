@@ -11,6 +11,7 @@ productRouter.post(
   protect,
   asyncHandler(async (req, res) => {
     const product = req.body;
+    console.log(product);
     const productName = product.productName;
     const price = product.price;
     const productImages = product.productImages;

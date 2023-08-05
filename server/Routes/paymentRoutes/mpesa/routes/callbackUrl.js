@@ -1,4 +1,5 @@
 const express = require("express");
+const axios = require("axios");
 const { Transaction } = require("../../../../Models/TransactionModel");
 
 const callBackRouter = express.Router();
@@ -9,6 +10,16 @@ callBackRouter.post("/", async (req, res) => {
   console.log(req.body);
 
   console.log(result);
+
+  const ResultDesc = req.body.Body.stkCallback.ResultDesc;
+  if (
+    ResultDesc === "DS timeout user cannot be reached" ||
+    ResultDesc === "Request cancelled by user"
+  ) {
+    axios.post("https://shangilia-server.onrender.com/api/stkRequest/desc", {
+      ResultDesc,
+    });
+  }
 
   const amountPaid = result.Item[0].Value;
 

@@ -7,7 +7,7 @@ const protect = require("../../../../Middlewares/authMiddleware");
 dotenv.config();
 
 const passKey = process.env.PASS_KEY;
-const shortCode = process.env.SHORT_CODE;
+const till_no = process.env.TILL_NO;
 const consumerKey = process.env.CONSUMER_KEY;
 const consumerSec = process.env.CONSUMER_SECRET;
 const BusinessShortCode = process.env.BUSINESS_SHORT_CODE;
@@ -18,7 +18,7 @@ const newPassword = () => {
 
   const formatted = date.format("YmdHMS");
 
-  const passString = shortCode + passKey + formatted;
+  const passString = BusinessShortCode + passKey + formatted;
 
   const base64EencodedPassword = Buffer.from(passString).toString("base64");
 
@@ -34,6 +34,7 @@ exports.token = (req, res, next) => {
 
   const url =
     "https://api.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials";
+  // ?grant_type=client_credentials
   const auth =
     "Basic " + Buffer.from(consumerKey + ":" + consumerSec).toString("base64");
 
@@ -89,7 +90,7 @@ exports.stkPush = (req, res) => {
     TransactionType: "CustomerPayBillOnline",
     Amount: totalPrice,
     PartyA: phone,
-    PartyB: BusinessShortCode,
+    PartyB: till_no,
     PhoneNumber: phone,
     CallBackURL: callbackUrl,
     AccountReference: "Nelite IT Solutions",

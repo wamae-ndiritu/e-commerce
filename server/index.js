@@ -16,6 +16,9 @@ const {
 } = require("./Routes/paymentRoutes/mpesa/routes/callbackUrl");
 const { mpesaRouter } = require("./Routes/paymentRoutes/mpesa/routes/mpesa");
 const { transactionRouter } = require("./Routes/transactionRoute");
+const {
+  callbackErrorRouter,
+} = require("./Routes/paymentRoutes/mpesa/routes/callbackErrors");
 // const { orderRouter } = require("./Routes/orderRouter");
 
 dotenv.config();
@@ -43,6 +46,7 @@ app.use("/api/payment", mpesaRouter);
 app.use("/api/verify-payment", verificationRouter);
 app.use("/api/transactions", transactionRouter);
 app.use("/api/confirmation", callBackRouter);
+app.use("api/stkRequest", callbackErrorRouter);
 
 app.listen(PORT, () => {
   console.log(`App is running on port ${PORT}`);
