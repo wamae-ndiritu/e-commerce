@@ -87,7 +87,7 @@ exports.stkPush = (req, res) => {
     BusinessShortCode: BusinessShortCode,
     Password: newPassword(),
     Timestamp: timestamp,
-    TransactionType: "CustomerPayBillOnline",
+    TransactionType: "CustomerBuyGoodsOnline",
     Amount: totalPrice,
     PartyA: phone,
     PartyB: till_no,
