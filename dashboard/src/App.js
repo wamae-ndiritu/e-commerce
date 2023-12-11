@@ -14,6 +14,7 @@ import OrderPage from "./Pages/OrderPage";
 import { Navigate, Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 import TransactionPage from "./Pages/TransactionsPage";
+import Dashboard from "./admin";
 
 function App() {
   const userLogin = useSelector((state) => state.userLogin);

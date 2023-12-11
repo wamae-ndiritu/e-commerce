@@ -44,9 +44,6 @@ const AddProduct = () => {
   const [progress, setProgress] = useState(0);
   const [progressShow, setProgressShow] = useState(false);
 
-  console.log(progress);
-  console.log(progressShow);
-
   const handleChange = (e) => {
     setInputs((prev) => {
       return { ...prev, [e.target.name]: e.target.value };
@@ -155,154 +152,154 @@ const AddProduct = () => {
   };
 
   return (
-    <div className="container">
+    <div className='container'>
       <Toast />
-      <div className="mt-3 mb-5">
-        <div className="product-form-cont shadow-lg">
+      <div className='mt-3 mb-5'>
+        <div className='product-form-cont shadow-lg'>
           {loading ? (
-            <div className="d-flex justify-content-center mt-3 mx-3">
-              <div class="spinner-border text-success" role="status">
-                <span class="visually-hidden">Loading...</span>
+            <div className='d-flex justify-content-center mt-3 mx-3'>
+              <div class='spinner-border text-success' role='status'>
+                <span class='visually-hidden'>Loading...</span>
               </div>
             </div>
           ) : (
-            error && <Message variant="alert-danger">{error}</Message>
+            error && <Message variant='alert-danger'>{error}</Message>
           )}
-          <div className="page-header-btn-cont mb-3">
-            <div className="btn-item-1">
-              <Link to="/products">
+          <div className='page-header-btn-cont mb-3'>
+            <div className='btn-item-1'>
+              <Link to='/products'>
                 <button
-                  className="btn btn-main"
+                  className='btn btn-main'
                   style={{ backgroundColor: "red" }}
                 >
                   Back to Products
                 </button>
               </Link>
             </div>
-            <h4 className="text-center mt-3">Add Product</h4>
-            <div className="btn-item-2">
-              <button className="btn btn-main" onClick={submitHandler}>
+            <h4 className='text-center mt-3'>Add Product</h4>
+            <div className='btn-item-2'>
+              <button className='btn btn-main' onClick={submitHandler}>
                 Publish Product
               </button>
             </div>
           </div>
-          <form className="add-form">
-            <div className="add-form-1">
-              <div className="mb-3">
+          <form className='add-form'>
+            <div className='add-form-1'>
+              <div className='mb-3'>
                 <h6>Product Title</h6>
                 <input
-                  type="text"
-                  className="form-control"
-                  placeholder="New Product title"
-                  name="productName"
+                  type='text'
+                  className='form-control'
+                  placeholder='New Product title'
+                  name='productName'
                   value={inputs.productName}
                   onChange={handleChange}
                 />
               </div>
-              <div className="mb-3">
+              <div className='mb-3'>
                 <h6>Categories</h6>
                 <input
-                  type="text"
-                  className="form-control"
-                  placeholder="floor,sugar,utensils, etc."
-                  name="categories"
+                  type='text'
+                  className='form-control'
+                  placeholder='floor,sugar,utensils, etc.'
+                  name='categories'
                   value={categories}
                   onChange={handleCategory}
                 />
               </div>
-              <div className="mb-3">
+              <div className='mb-3'>
                 <h6>Quantity</h6>
                 <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Bundle,12 pcs packet, etc."
-                  name="quantity"
+                  type='text'
+                  className='form-control'
+                  placeholder='Bundle,12 pcs packet, etc.'
+                  name='quantity'
                   value={quantities}
                   onChange={handleQuantity}
                 />
               </div>
-              <div className="mb-3">
+              <div className='mb-3'>
                 <h6>Brand</h6>
                 <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Raha Premium,Soko Ugali,Kafagara,etc"
-                  name="brands"
+                  type='text'
+                  className='form-control'
+                  placeholder='Raha Premium,Soko Ugali,Kafagara,etc'
+                  name='brands'
                   value={brands}
                   onChange={handleBrand}
                 />
               </div>
-              <div className="mb-3">
+              <div className='mb-3'>
                 <h6>Suppliers</h6>
                 <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Menengai Distributors,Sony Max,etc."
-                  name="suppliers"
+                  type='text'
+                  className='form-control'
+                  placeholder='Menengai Distributors,Sony Max,etc.'
+                  name='suppliers'
                   value={suppliers}
                   onChange={handleSuppliers}
                 />
               </div>
-              <div className="mb-3">
+              <div className='mb-3'>
                 <h6>Images</h6>
                 <input
-                  type="text"
-                  className="form-control"
+                  type='text'
+                  className='form-control'
                   placeholder="Please don't type here"
-                  name="images"
+                  name='images'
                   value={urls}
                   onChange={(e) => setImages(e.target.value)}
                 />
               </div>
             </div>
-            <div className="add-form-2">
-              <div className="mb-3">
+            <div className='add-form-2'>
+              <div className='mb-3'>
                 <h6>Price</h6>
                 <input
-                  type="text"
-                  className="form-control"
-                  placeholder="10 000"
-                  name="price"
+                  type='text'
+                  className='form-control'
+                  placeholder='10 000'
+                  name='price'
                   value={inputs.price}
                   onChange={handleChange}
                 />
               </div>
-              <div className="mb-3">
+              <div className='mb-3'>
                 <h6>Product Variation</h6>
                 <select
-                  className="form-control"
-                  name="variation"
+                  className='form-control'
+                  name='variation'
                   onChange={(e) => setVariation(e.target.value)}
                 >
-                  <option value="all">All</option>
-                  <option value="wholesale">Wholesale</option>
-                  <option value="retail">Retail</option>
+                  <option value='all'>All</option>
+                  <option value='wholesale'>Wholesale</option>
+                  <option value='retail'>Retail</option>
                 </select>
               </div>
-              <div className="mb-3">
+              <div className='mb-3'>
                 <h6>Product Image</h6>
                 <input
-                  type="file"
-                  className="form-control"
+                  type='file'
+                  className='form-control'
                   multiple
-                  name="images"
+                  name='images'
                   onChange={handleImages}
                 />
               </div>
-              <div className="mb-3">
+              <div className='mb-3'>
                 <h6>Description</h6>
                 <textarea
-                  type="text"
-                  className="form-control"
-                  rows="5"
-                  placeholder="Type your product description here..."
-                  name="description"
+                  type='text'
+                  className='form-control'
+                  rows='5'
+                  placeholder='Type your product description here...'
+                  name='description'
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                 ></textarea>
               </div>
-              <div className="mb-3">
-                <button className="btn btn-main" onClick={uploadImages}>
+              <div className='mb-3'>
+                <button className='btn btn-main' onClick={uploadImages}>
                   Upload Images
                 </button>
               </div>

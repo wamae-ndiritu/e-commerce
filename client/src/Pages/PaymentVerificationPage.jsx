@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import mpesa from "../Images/mpesa.png";
 import { verifyPayment } from "../Redux/Actions/paymentActions";
 import Message from "../utilities/Message";
+import { createOrder } from "../Redux/Actions/orderActions";
 
 const PaymentVerificationPage = () => {
   const dispatch = useDispatch();
@@ -14,17 +15,33 @@ const PaymentVerificationPage = () => {
   const { loading, error, success } = paymentVerification;
 
   const cart = useSelector((state) => state.cart);
-  const { cartItems } = cart;
+  const { cartItems, billingAddress } = cart;
+
+  console.log(billingAddress);
 
   const amountPaid = cartItems
     .reduce((itemA, itemB) => itemA + itemB.qty * itemB.price, 0)
     .toFixed(2);
 
+  // useEffect(() => {
+  //   if (success) {
+  //     console.log("Payment verified successfully");
+  //     dispatch(createOrder());
+  //   }
+  // }, [success]);
+
+  const cartTotals = cartItems
+    .reduce((itemA, itemB) => itemA + itemB.qty * itemB.price, 0)
+    .toFixed(2);
+
+  const totalPrice = Number(Math.round(cartTotals));
+
   useEffect(() => {
     if (success) {
-      console.log("Payment verified successfully");
+      const orderItems = cartItems;
+      dispatch(createOrder(orderItems, billingAddress, totalPrice));
     }
-  }, [success]);
+  }, [success, dispatch, billingAddress, cartItems, totalPrice]);
 
   const handlePaymentVerification = (e) => {
     e.preventDefault();
@@ -32,36 +49,36 @@ const PaymentVerificationPage = () => {
   };
 
   return (
-    <div className="container">
-      <div className="row d-flex justify-content-center mb-3">
-        <div className="col-sm-6 col-md-8 col-lg-5 shadow-lg my-3">
+    <div className='container'>
+      <div className='row d-flex justify-content-center mb-3'>
+        <div className='col-sm-6 col-md-8 col-lg-5 shadow-lg my-3'>
           {loading ? (
-            <div className="d-flex justify-content-center mt-3 mx-3">
-              <div class="spinner-border text-success" role="status">
-                <span class="visually-hidden">Loading...</span>
+            <div className='d-flex justify-content-center mt-3 mx-3'>
+              <div class='spinner-border text-success' role='status'>
+                <span class='visually-hidden'>Loading...</span>
               </div>
             </div>
           ) : (
             error && (
-              <div className="mt-3">
-                <Message variant="alert-danger">{error}</Message>
+              <div className='mt-3'>
+                <Message variant='alert-danger'>{error}</Message>
               </div>
             )
           )}
-          <form className="mb-3 pay-form-cont">
-            <h6 className="text-center mt-3">Verify Payment</h6>
-            <div className="pay-form">
-              <div className="pay-form-left">
+          <form className='mb-3 pay-form-cont'>
+            <h6 className='text-center mt-3'>Verify Payment</h6>
+            <div className='pay-form'>
+              <div className='pay-form-left'>
                 <h6>Mpesa Code</h6>
                 <input
-                  type="text"
-                  className="form-control"
-                  placeholder="QLA1U9ZHSR"
+                  type='text'
+                  className='form-control'
+                  placeholder='QLA1U9ZHSR'
                   onChange={(e) => setMpesaCode(e.target.value)}
                 />
-                <div className="my-3">
+                <div className='my-3'>
                   <button
-                    className="btn reset-btn"
+                    className='btn reset-btn'
                     style={{ width: "100%" }}
                     onClick={handlePaymentVerification}
                   >
@@ -69,8 +86,8 @@ const PaymentVerificationPage = () => {
                   </button>
                 </div>
               </div>
-              <div className="pay-form-right">
-                <img src={mpesa} alt="" />
+              <div className='pay-form-right'>
+                <img src={mpesa} alt='' />
               </div>
             </div>
             <p>

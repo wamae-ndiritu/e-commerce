@@ -51,56 +51,56 @@ const PaymentPage = () => {
 
   useEffect(() => {
     if (userInfo) {
-      setPhone(`254${userInfo.phone.slice(1, 10)}`);
+      setPhone(`254${userInfo?.phone?.slice(1, 10)}`);
     }
   }, [userInfo]);
 
   return (
-    <div className="container">
-      <div className="row d-flex justify-content-center mb-3">
-        <div className="col-sm-6 col-md-8 col-lg-5 shadow-lg my-3">
-          <form className="mb-3 pay-form-cont">
+    <div className='container'>
+      <div className='row d-flex justify-content-center mb-3'>
+        <div className='col-sm-6 col-md-8 col-lg-5 shadow-lg my-3'>
+          <form className='mb-3 pay-form-cont'>
             {loading ? (
-              <div className="d-flex justify-content-center mt-3 mx-3">
-                <div class="spinner-border text-success" role="status">
-                  <span class="visually-hidden">Loading...</span>
+              <div className='d-flex justify-content-center mt-3 mx-3'>
+                <div class='spinner-border text-success' role='status'>
+                  <span class='visually-hidden'>Loading...</span>
                 </div>
               </div>
             ) : error ? (
-              <div className="mt-3">
-                <Message variant="alert-danger">{error}</Message>
+              <div className='mt-3'>
+                <Message variant='alert-danger'>{error}</Message>
               </div>
             ) : (
               success && (
-                <div className="mt-3">
-                  <Message variant="alert-success text-success">
+                <div className='mt-3'>
+                  <Message variant='alert-success text-success'>
                     Please check your phone...
                   </Message>
                 </div>
               )
             )}
-            <h6 className="text-center mt-3">Make Payment</h6>
-            <div className="pay-form">
-              <div className="pay-form-left">
+            <h6 className='text-center mt-3'>Make Payment</h6>
+            <div className='pay-form'>
+              <div className='pay-form-left'>
                 <h6>Mpesa Phone No.</h6>
                 <input
-                  type="text"
-                  className="form-control"
-                  placeholder="254740924507"
+                  type='text'
+                  className='form-control'
+                  placeholder='254740924507'
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                 />
-                <div className="pt-2">
+                <div className='pt-2'>
                   <h6>Pay KES {cartTotals}</h6>
                 </div>
-                <div className="my-3">
+                <div className='my-3'>
                   {success ? (
                     <>
-                      <p className="redirect-p mb-3">
+                      <p className='redirect-p mb-3'>
                         Please click verify payment once you have paid...
                       </p>
                       <button
-                        className="btn reset-btn"
+                        className='btn reset-btn'
                         style={{ width: "100%" }}
                         onClick={verifyHandler}
                       >
@@ -109,7 +109,7 @@ const PaymentPage = () => {
                     </>
                   ) : (
                     <button
-                      className="btn reset-btn"
+                      className='btn reset-btn'
                       style={{ width: "100%" }}
                       onClick={mpesaPayHandler}
                     >
@@ -118,8 +118,8 @@ const PaymentPage = () => {
                   )}
                 </div>
               </div>
-              <div className="pay-form-right">
-                <img src={mpesa} alt="" />
+              <div className='pay-form-right'>
+                <img src={mpesa} alt='' />
               </div>
             </div>
             <p>

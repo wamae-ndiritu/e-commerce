@@ -47,6 +47,7 @@ export const createOrder =
         },
         config
       );
+      console.log(data);
 
       dispatch({ type: ORDER_CREATE_SUCCESS, payload: data });
       dispatch({ type: ORDER_CREATE_RESET });
@@ -169,7 +170,8 @@ export const markOrderPaid = (id) => async (dispatch, getState) => {
       },
     };
 
-    await axios.post(`${URL}/api/api/verify-payment/${id}/orderIsPaid`, config);
+    await axios.put(`${URL}/api/verify-payment/${id}/orderIsPaid`, config);
+    console.log("Order is now paid...");
 
     dispatch({ type: MARK_ORDER_PAID_SUCCESS });
   } catch (error) {
