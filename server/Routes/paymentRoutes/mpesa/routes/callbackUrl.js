@@ -10,7 +10,7 @@ callBackRouter.post("/:clientId", async (req, res) => {
   const result = req.body.Body.stkCallback.CallbackMetadata;
 
   console.log(sendMessageToClient);
-  sendMessageToClient(clientId, req.body);
+  sendMessageToClient(clientId, req.body.Body.stkCallback.ResultDesc);
 
   console.log(req.body);
 

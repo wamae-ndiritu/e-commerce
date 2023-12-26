@@ -1,7 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import mpesa from "../Images/mpesa.png";
 import { payOrder } from "../Redux/Actions/orderActions";
@@ -10,9 +9,9 @@ import { io } from "socket.io-client";
 
 const PaymentPage = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const [phone, setPhone] = useState("");
+  const [status, setStatus] = useState(null);
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
 
@@ -42,11 +41,6 @@ const PaymentPage = () => {
     );
   };
 
-  const verifyHandler = (e) => {
-    e.preventDefault();
-    navigate("/checkout/payment/verification");
-  };
-
   // useEffect(() => {
   //   if (success) {
   //     // const orderItems = cartItems;
@@ -65,6 +59,7 @@ const PaymentPage = () => {
     socket.on("paymentStatus", (status) => {
       console.log(`Received message: ${status}`);
       console.log(status);
+      setStatus(status);
 
       // Update your React state or trigger any action based on the received message
     });
@@ -80,6 +75,11 @@ const PaymentPage = () => {
       <div className='row d-flex justify-content-center mb-3'>
         <div className='col-sm-6 col-md-8 col-lg-5 shadow-lg my-3'>
           <form className='mb-3 pay-form-cont'>
+            {status && (
+              <div className='mt-3'>
+                <Message variant='alert-success text-success'>{status}</Message>
+              </div>
+            )}
             {loading ? (
               <div className='d-flex justify-content-center mt-3 mx-3'>
                 <div class='spinner-border text-success' role='status'>
@@ -114,28 +114,13 @@ const PaymentPage = () => {
                   <h6>Pay KES {cartTotals}</h6>
                 </div>
                 <div className='my-3'>
-                  {success ? (
-                    <>
-                      <p className='redirect-p mb-3'>
-                        Please click verify payment once you have paid...
-                      </p>
-                      <button
-                        className='btn reset-btn'
-                        style={{ width: "100%" }}
-                        onClick={verifyHandler}
-                      >
-                        Verify Payment
-                      </button>
-                    </>
-                  ) : (
-                    <button
-                      className='btn reset-btn'
-                      style={{ width: "100%" }}
-                      onClick={mpesaPayHandler}
-                    >
-                      Pay Order
-                    </button>
-                  )}
+                  <button
+                    className='btn reset-btn'
+                    style={{ width: "100%" }}
+                    onClick={mpesaPayHandler}
+                  >
+                    Pay Order
+                  </button>
                 </div>
               </div>
               <div className='pay-form-right'>
