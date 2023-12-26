@@ -29,6 +29,7 @@ import CheckoutPage from "./Pages/CheckoutPage";
 import PaymentPage from "./Pages/PaymentPage";
 import PaymentVerificationPage from "./Pages/PaymentVerificationPage";
 import OrderPage from "./Pages/OrderPage";
+import SuccessPaymentModal from "./modals/SuccessPaymentModal";
 
 function App() {
   const userLogin = useSelector((state) => state.userLogin);
@@ -44,6 +45,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
+      <SuccessPaymentModal show={true} />
       <Header />
       <div id='id'>
         <Routes>
