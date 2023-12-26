@@ -23,6 +23,7 @@
     "nodemailer": "^6.8.0",
     "nodemailer-smtp-transport": "^2.7.4",
     "otp-generator": "^4.0.0",
+    "socket.io": "^4.7.2",
     "uuid": "^9.0.0"
   },
   "devDependencies": {

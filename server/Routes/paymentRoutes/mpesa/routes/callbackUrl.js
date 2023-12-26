@@ -1,11 +1,16 @@
 const express = require("express");
 const axios = require("axios");
 const { Transaction } = require("../../../../Models/TransactionModel");
+const { sendMessageToClient } = require("../../../../socket");
 
 const callBackRouter = express.Router();
 
-callBackRouter.post("/", async (req, res) => {
+callBackRouter.post("/:clientId", async (req, res) => {
+  const clientId = req.params.clientId;
   const result = req.body.Body.stkCallback.CallbackMetadata;
+
+  console.log(sendMessageToClient);
+  sendMessageToClient(clientId, req.body);
 
   console.log(req.body);
 
@@ -83,6 +88,7 @@ callBackRouter.post("/", async (req, res) => {
       throw new Error("Invalid Transaction");
     }
   }
+  res.status(200).json({ success: true });
 });
 
 module.exports = { callBackRouter };

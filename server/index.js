@@ -21,10 +21,14 @@ const {
 } = require("./Routes/paymentRoutes/mpesa/routes/callbackErrors");
 // const { orderRouter } = require("./Routes/orderRouter");
 
+const http = require("http");
+
 dotenv.config();
 connectDatabase();
 
 const app = express();
+// const server = http.createServer(app);
+// const io = socketIo(server);
 
 // Middlewares
 app.use(cors());

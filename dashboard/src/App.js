@@ -14,7 +14,6 @@ import OrderPage from "./Pages/OrderPage";
 import { Navigate, Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 import TransactionPage from "./Pages/TransactionsPage";
-import Dashboard from "./admin";
 
 function App() {
   const userLogin = useSelector((state) => state.userLogin);
@@ -30,20 +29,20 @@ function App() {
     <Router>
       <Routes>
         <Route element={<AuthLayout />}>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/" element={<HomePage />} exact />
-          <Route path="/product/new" element={<AddProductPage />} />
-          <Route path="/products" element={<ProductsPage />} />
-          <Route path="/product/:id" element={<ProductPage />} />
-          <Route path="/product/edit/:id" element={<EditProductPage />} />
-          <Route path="/orders" element={<OrdersPage />} />
-          <Route path="/orders/new" element={<NewOrdersPage />} />
-          <Route path="/order/:id" element={<OrderPage />} />
-          <Route path="/orders/delivered" element={<DeliveredOrdersPage />} />
-          <Route path="/orders/paid" element={<PaidOrdersPage />} />
-          <Route path="/transactions" element={<TransactionPage />} />
+          <Route path='/' element={<HomePage />} />
+          <Route path='/' element={<HomePage />} exact />
+          <Route path='/product/new' element={<AddProductPage />} />
+          <Route path='/products' element={<ProductsPage />} />
+          <Route path='/product/:id' element={<ProductPage />} />
+          <Route path='/product/edit/:id' element={<EditProductPage />} />
+          <Route path='/orders' element={<OrdersPage />} />
+          <Route path='/orders/new' element={<NewOrdersPage />} />
+          <Route path='/order/:id' element={<OrderPage />} />
+          <Route path='/orders/delivered' element={<DeliveredOrdersPage />} />
+          <Route path='/orders/paid' element={<PaidOrdersPage />} />
+          <Route path='/transactions' element={<TransactionPage />} />
         </Route>
-        <Route path="/login" element={<LoginPage />} />
+        <Route path='/login' element={<LoginPage />} />
       </Routes>
     </Router>
   );

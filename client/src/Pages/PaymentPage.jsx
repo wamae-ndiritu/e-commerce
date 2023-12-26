@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import mpesa from "../Images/mpesa.png";
 import { payOrder } from "../Redux/Actions/orderActions";
 import Message from "../utilities/Message";
+import { io } from "socket.io-client";
 
 const PaymentPage = () => {
   const dispatch = useDispatch();
@@ -17,6 +18,10 @@ const PaymentPage = () => {
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
+
+  const socket = io("ws://localhost:8900", {
+    query: { clientId: userInfo._id },
+  });
 
   const orderPay = useSelector((state) => state.orderPay);
   const { loading, success, error } = orderPay;
@@ -54,6 +59,21 @@ const PaymentPage = () => {
       setPhone(`254${userInfo?.phone?.slice(1, 10)}`);
     }
   }, [userInfo]);
+
+  useEffect(() => {
+    // Listen for messages from the socket.io server
+    socket.on("paymentStatus", (status) => {
+      console.log(`Received message: ${status}`);
+      console.log(status);
+
+      // Update your React state or trigger any action based on the received message
+    });
+
+    // Clean up the socket.io connection when the component unmounts
+    return () => {
+      socket.disconnect();
+    };
+  }, [socket]); // Run once on component mount
 
   return (
     <div className='container'>
