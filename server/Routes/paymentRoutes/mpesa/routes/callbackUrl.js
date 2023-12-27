@@ -14,6 +14,7 @@ callBackRouter.post("/:clientId", async (req, res) => {
     ResultDesc === "DS timeout user cannot be reached" ||
     ResultDesc === "Request cancelled by user"
   ) {
+    console.log(req.body);
     res.status(504).json({ message: "Request cancelled by user!" });
   } else {
     const result = req.body.Body.stkCallback.CallbackMetadata;
