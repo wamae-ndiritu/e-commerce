@@ -47,9 +47,7 @@ exports.token = (req, res, next) => {
       headers,
     })
     .then((response) => {
-      // console.log(response);
       let token = response.data.access_token;
-      console.log(`token is ${token}`);
       req.access_token = token;
       next();
     })
@@ -57,19 +55,12 @@ exports.token = (req, res, next) => {
       console.log(err);
       res.status(400).json({ message: "Invalid request" });
     });
-  // req.access_token = "AkZ6tTm7YiTiKxtj7w5MgxHBbrCH";
-  // next();
 };
 
 exports.stkPush = (req, res) => {
   let token = req.access_token;
 
-  // console.log(req.body);
-  // console.log(`token as in stkPush ${token}`);
-
   const { amountPayable, phoneNo } = req.body;
-
-  // console.log(`amountPayable: ${amountPayable}, phoneNo: ${phoneNo}`);
 
   const phone = Number(phoneNo);
   const totalPrice = Number(amountPayable);
@@ -96,8 +87,6 @@ exports.stkPush = (req, res) => {
     AccountReference: "Nelite IT Solutions",
     TransactionDesc: "Nelite IT Solutions",
   };
-
-  // console.log(data);
 
   axios
     .post(stkUrl, data, { headers: headers })
