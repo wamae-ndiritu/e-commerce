@@ -131,11 +131,22 @@ export const getOrderDetails = (id) => async (dispatch, getState) => {
 };
 
 // ORDER PAY
-export const payOrder = (paymentDetails) => async (dispatch) => {
+export const payOrder = (paymentDetails) => async (dispatch, getState) => {
   try {
     dispatch({ type: ORDER_PAY_REQUEST });
 
-    await axios.post(`${URL}/api/payment/stk/push`, paymentDetails);
+    const {
+      userLogin: { userInfo },
+    } = getState();
+
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+
+    await axios.post(`${URL}/api/payment/stk/push`, paymentDetails, config);
 
     dispatch({ type: ORDER_PAY_SUCCESS });
   } catch (error) {
