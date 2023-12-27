@@ -18,7 +18,7 @@ const PaymentPage = () => {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
-  const socket = io("ws://localhost:8900", {
+  const socket = io("ws://shangilia-server.onrender.com:8900", {
     query: { clientId: userInfo._id },
   });
 
